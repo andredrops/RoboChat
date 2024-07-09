@@ -2,7 +2,8 @@ program RoboChat;
 
 uses
   Vcl.Forms,
-  uView in 'uView.pas' {Form1};
+  uView in 'uView.pas' {Form1},
+  uRoboChatView in 'uRoboChatView.pas' {RoboChatView};
 
 {$R *.res}
 

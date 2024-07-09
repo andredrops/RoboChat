@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls,
+  uRoboChatView;
 
 type
   TForm1 = class(TForm)
@@ -21,8 +22,10 @@ type
     procedure Panel1Click(Sender: TObject);
     procedure Panel1MouseEnter(Sender: TObject);
     procedure Panel1MouseLeave(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
-    { Private declarations }
+    FRoboChat: TRoboChatView;
   public
     { Public declarations }
   end;
@@ -33,6 +36,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  FRoboChat := TRoboChatView.New();
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  FRoboChat.IniciarAssistente(Self);
+end;
 
 procedure TForm1.Image2Click(Sender: TObject);
 begin
